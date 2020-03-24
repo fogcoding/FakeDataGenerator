@@ -19,14 +19,14 @@ public class Test {
         NameGenerator nameGenerator = new NameGenerator();
         EduBackgroundGenerator eduBackgroundGenerator = new EduBackgroundGenerator();
         AgeGenerator ageGenerator = new AgeGenerator();
-        while (i++ < 100000){
+        while (i++ < 100){
             p.setName(nameGenerator.Men(2));
             p.setAge(ageGenerator.Student());
             p.setSex("男");
             p.setHometown(addressGenerator.getOne());
             p.setEdu_bachground(eduBackgroundGenerator.High());
-            System.out.println(p.toString());
-            p.clear();
+//            System.out.println(p.toString());
+//            p.clear();
         }
     }
 

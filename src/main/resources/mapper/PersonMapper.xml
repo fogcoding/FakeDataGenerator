@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fogcoding.Injector.mapper.PersonMapper">
+
+    <select id="getAll" resultType="com.fogcoding.generator.Person.model.Person">
+        select * from person;
+    </select>
+
+    <insert id="born" parameterType="com.fogcoding.generator.Person.model.Person">
+        insert into person
+        (name,age,sex,hometown,edu_bachground)
+        values(
+        #{name },#{ age },#{ sex },#{ hometown },#{ edu_bachground }
+        );
+    </insert>
+
+<!--    <insert id="born" parameterType="com.fogcoding.generator.Person.model.Person">-->
+<!--        insert into han-->
+<!--        (name,age,sex,hometown,edu_bachground,identified_id,marriage_status,spouse,father,mother)-->
+<!--        values(-->
+<!--        #{name },#{ age },#{ sex },#{ hometown },#{ edu_bachground },#{ identified_id },#{ marriage_status },#{ spouse },#{ father },#{ mother }-->
+<!--        );-->
+<!--    </insert>-->
+<!--    -->
+<!--    -->
+
+
+</mapper>

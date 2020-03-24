@@ -37,13 +37,20 @@ public class AddressGenerator {
         Province province = list.get(provice);
 
         Province.City cityaddr = null;
+//        System.out.println(new Gson().toJson(province));
         if (province.getDistricts().size() > 1) {
-            int city = random.nextInt(province.getDistricts().size());
+            int city = random.nextInt(province.getDistricts().size()-1);
             cityaddr = province.getDistricts().get(city);
             addr = addr.concat(province.getName());
         } else if (province.getDistricts().size() == 1){
             cityaddr = province.getDistricts().get(0);
             addr = addr.concat(province.getName());
+        }
+        try {
+            System.out.println(province.getName());
+            System.out.println(cityaddr.getName());
+        } catch (Exception e) {
+            System.out.println(e.toString());
         }
 
         Province.District districtaddr = null;
@@ -64,9 +71,15 @@ public class AddressGenerator {
             strretaddr = districtaddr.getDistricts().get(0);
             addr = addr.concat(strretaddr.getName());
         }
+        try {
+            System.out.println(strretaddr.getName());
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
         //不知道为什么会出现空值，所以补锅一样搞了个重来操作
         if (addr.equals("")){
-            getOne();
+            return getOne();
         }
         return addr;
     }

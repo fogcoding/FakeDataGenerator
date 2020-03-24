@@ -71,22 +71,43 @@ public class Person {
         this.edu_bachground = edu_bachground;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", sex='" + sex + '\'' +
-                ", hometown='" + hometown + '\'' +
-                ", edu_bachground='" + edu_bachground + '\'' +
-                '}';
+    public String getIdentified_id() {
+        return identified_id;
     }
 
-    public void clear() {
-        this.age = 0;
-        this.name = "";
-        this.edu_bachground = "";
-        this.sex = "";
-        this.hometown = "";
+    public void setIdentified_id(String identified_id) {
+        this.identified_id = identified_id;
+    }
+
+    public String getMarriage_status() {
+        return marriage_status;
+    }
+
+    public void setMarriage_status(String marriage_status) {
+        this.marriage_status = marriage_status;
+    }
+
+    public String getSpouse() {
+        return spouse;
+    }
+
+    public void setSpouse(String spouse) {
+        this.spouse = spouse;
+    }
+
+    public Person getFather() {
+        return father;
+    }
+
+    public void setFather(Person father) {
+        this.father = father;
+    }
+
+    public Person getMother() {
+        return mother;
+    }
+
+    public void setMother(Person mother) {
+        this.mother = mother;
     }
 }
