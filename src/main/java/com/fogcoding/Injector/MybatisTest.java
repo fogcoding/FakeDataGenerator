@@ -5,6 +5,7 @@ import com.fogcoding.generator.Person.AgeGenerator;
 import com.fogcoding.generator.Person.EduBackgroundGenerator;
 import com.fogcoding.generator.Person.NameGenerator;
 import com.fogcoding.generator.Person.model.Person;
+import com.google.gson.Gson;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -50,7 +51,7 @@ public class MybatisTest {
             NameGenerator nameGenerator = new NameGenerator();
             EduBackgroundGenerator eduBackgroundGenerator = new EduBackgroundGenerator();
             AgeGenerator ageGenerator = new AgeGenerator();
-            while (i++ < 1000000){
+            while (i++ < 10000){
                 p.setName(nameGenerator.Men(2));
                 p.setAge(new Random().nextInt(45));
                 p.setSex("女");
@@ -60,15 +61,17 @@ public class MybatisTest {
                 ss.insert("com.fogcoding.Injector.mapper.PersonMapper.born",p);
 //            System.out.println(p.toString());
 //            p.clear();
+
             }
             ss.commit();
+
 
 
             // 查询所有用户
             List<Person> listMu = ss
                     .selectList("com.fogcoding.Injector.mapper.PersonMapper.getAll");
             for (Person person : listMu) {
-                System.out.println(person);
+                System.out.println(new Gson().toJson(person));
             }
             // 提交事务
             ss.commit();

@@ -9,6 +9,13 @@
     <version>1.0-SNAPSHOT</version>
 
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-fogcoding</id>
+            <url>http://localhost:8081/repository/fogcoding/</url>
+        </repository>
+
+    </distributionManagement>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
@@ -23,11 +30,19 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.47</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>8</version>
+        </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.3.2</version>
         </dependency>
+
 
 
 

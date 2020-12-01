@@ -3,16 +3,22 @@
 <mapper namespace="com.fogcoding.Injector.mapper.PersonMapper">
 
     <select id="getAll" resultType="com.fogcoding.generator.Person.model.Person">
-        select * from person;
+        select * from person
     </select>
 
-    <insert id="born" parameterType="com.fogcoding.generator.Person.model.Person">
-        insert into person
-        (name,age,sex,hometown,edu_bachground)
-        values(
-        #{name },#{ age },#{ sex },#{ hometown },#{ edu_bachground }
-        );
+<!--  oracle版本  -->
+    <insert id="born" parameterType="com.fogcoding.generator.Person.model.Person" useGeneratedKeys="true">
+        insert into person (name,age,sex,hometown,edu_bachground) values ( #{name },#{ age },#{ sex },#{ hometown },#{ edu_bachground })
+<!--        insert into person values ( #{name },#{ age },#{ sex },#{ hometown },#{ edu_bachground })-->
     </insert>
+
+
+<!-- mysql版本   -->
+<!--    <insert id="born" parameterType="com.fogcoding.generator.Person.model.Person">-->
+<!--        insert into person (name,age,sex,hometown,edu_bachground) values( #{name },#{ age },#{ sex },#{ hometown },#{ edu_bachground } ) ;-->
+<!--    </insert>-->
+<!--    -->
+
 
 <!--    <insert id="born" parameterType="com.fogcoding.generator.Person.model.Person">-->
 <!--        insert into han-->
